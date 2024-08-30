@@ -1,0 +1,26 @@
+{
+  "source": ["./tokens.json"],
+  "platforms": {
+    "output": {
+      "transforms": [
+        "ts/descriptionToComment",
+        "ts/size/px",
+        "ts/typography/fontWeight",
+        "ts/typography/css/fontFamily",
+        "ts/typography/css/shorthand",
+        "ts/size/css/letterspacing",
+        "ts/size/lineheight",
+        "ts/border/css/shorthand",
+        "ts/shadow/css/shorthand",
+        "name/cti/kebab"
+      ],
+      "buildPath": "./src/styles/",
+      "files": [
+        {
+          "destination": "_variable.scss",
+          "format": "css/variables"
+        }
+      ]
+    }
+  }
+}
