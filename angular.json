@@ -96,9 +96,9 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles/global.scss"],
+            "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/styles"]
+              "includePaths": ["src"]
             },
             "scripts": []
           }

@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.2.
 
+## style dictionary build
+
+Using a transform with style dictionary. After the setup, the variables are built with;
+'node transforms.js' and no more 'style-dictionary build'
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
