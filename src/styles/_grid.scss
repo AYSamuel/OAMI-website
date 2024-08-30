@@ -1,0 +1,178 @@
+:root {
+  --grid-cols: 12;
+  /*
+    I've used same spacing between columns for all
+    responsive versions (we might change it or
+    if we gonna have just 1 gap size remove redundant code)
+   */
+  --col-gap-x--sm: var(--space-7);
+  --col-gap-x--md: var(--space-7);
+  --col-gap-x--lg: var(--space-7);
+  --col-gap-x--xl: var(--space-7);
+}
+$grid: (
+  'cols': 12,
+  'tablet-min': 768px,
+  'tablet-max': 1260px,
+  'screen-min': 1261px,
+  'screen-max': 1919px,
+  'largescreen-min': 1920px,
+);
+
+/* Creates media-query for all breakpoints */
+@mixin create-mq($min-width, $max-width: null) {
+  @if $max-width {
+    @media only screen and (min-width: $min-width) and (max-width: $max-width) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $min-width) {
+      @content;
+    }
+  }
+}
+
+/* generates classes: .col-6, col-lg-4, col-md-offset-3 etc. */
+@mixin create-col-classes($modifier, $min-width, $max-width: null) {
+  @include create-mq($min-width, $max-width) {
+    @for $i from 1 through map-get($grid, 'cols') {
+      .col#{$modifier}-#{$i} {
+        flex-basis: calc((100% / #{map-get($grid, 'cols')}) * #{$i});
+      }
+
+      .col#{$modifier}-offset-#{$i} {
+        margin-left: calc((100% / #{map-get($grid, 'cols')}) * #{$i});
+      }
+    }
+
+    .col#{$modifier}-offset-0 {
+      margin-left: 0;
+    }
+  }
+}
+
+/* Row Mixin */
+@mixin row() {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% + var(--col-gap-x--sm));
+
+  margin-right: calc(var(--col-gap-x--sm) / 2 * -1);
+  margin-left: calc(var(--col-gap-x--sm) / 2 * -1);
+
+  @include create-mq(tablet) {
+    width: calc(100% + var(--col-gap-x--md));
+    margin-right: calc(var(--col-gap-x--md) / 2 * -1);
+    margin-left: calc(var(--col-gap-x--md) / 2 * -1);
+  }
+  @include create-mq(screen) {
+    width: calc(100% + var(--col-gap-x--lg));
+    margin-right: calc(var(--col-gap-x--lg) / 2 * -1);
+    margin-left: calc(var(--col-gap-x--lg) / 2 * -1);
+  }
+  @include create-mq(largescreen) {
+    width: calc(100% + var(--col-gap-x--xl));
+    margin-right: calc(var(--col-gap-x--xl) / 2 * -1);
+    margin-left: calc(var(--col-gap-x--xl) / 2 * -1);
+  }
+}
+
+/*
+  Column Mixins - will add width to an element
+  based on $cols
+ */
+@mixin col($cols) {
+  flex-basis: calc((100% / #{map-get($grid, 'cols')}) * #{$cols});
+  width: calc((100% / #{map-get($grid, 'cols')}) * #{$cols});
+  max-width: calc((100% / #{map-get($grid, 'cols')}) * #{$cols});
+}
+
+/*
+  Mixins which allow us to create columns in CSS instead
+  of HMTL (via class). Can be used as:
+
+  .component-name {
+    @include cols(12);
+    @include md-cols(6);
+    @include lg-cols(3);
+    @include xl-cols(2);
+  }
+*/
+@mixin cols($cols) {
+  @include col($cols);
+  padding-right: calc(var(--col-gap-x--sm) / 2);
+  padding-left: calc(var(--col-gap-x--sm) / 2);
+}
+
+@mixin md-cols($cols) {
+  @include create-mq(tablet) {
+    @include col($cols);
+    padding-right: calc(var(--col-gap-x--md) / 2);
+    padding-left: calc(var(--col-gap-x--md) / 2);
+  }
+}
+
+@mixin lg-cols($cols) {
+  @include create-mq(screen) {
+    @include col($cols);
+    padding-right: calc(var(--col-gap-x--lg) / 2);
+    padding-left: calc(var(--col-gap-x--lg) / 2);
+  }
+}
+
+@mixin xl-cols($cols) {
+  @include create-mq(largescreen) {
+    @include col($cols);
+    padding-right: calc(var(--col-gap-x--xl) / 2);
+    padding-left: calc(var(--col-gap-x--xl) / 2);
+  }
+}
+
+/* mixin for row */
+.row {
+  @include row();
+
+  &-no-gap {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+
+    [class*='col-'] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+/* basic settings for all .col classes */
+[class*='col-'] {
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding-right: calc(var(--col-gap-x--sm) / 2);
+  padding-left: calc(var(--col-gap-x--sm) / 2);
+
+  /*
+    If we gonna use one --col-gap-x we can remove
+    code bellow
+   */
+  @include create-mq(tablet) {
+    padding-right: calc(var(--col-gap-x--md) / 2);
+    padding-left: calc(var(--col-gap-x--md) / 2);
+  }
+
+  @include create-mq(screen) {
+    padding-right: calc(var(--col-gap-x--lg) / 2);
+    padding-left: calc(var(--col-gap-x--lg) / 2);
+  }
+
+  @include create-mq(largescreen) {
+    padding-right: calc(var(--col-gap-x--xl) / 2);
+    padding-left: calc(var(--col-gap-x--xl) / 2);
+  }
+}
+
+/* calling mixin which creates columns classes */
+@include create-col-classes('', 0, null);
+@include create-col-classes('-md', map-get($grid, 'tablet-min'), null);
+@include create-col-classes('-lg', map-get($grid, 'screen-min'), null);
+@include create-col-classes('-xl', map-get($grid, 'largescreen-min'), null);
