@@ -1,0 +1,116 @@
+@use 'breakpoints' as *;
+
+@for $i from 1 through 12 {
+  $margins: (
+    top: (
+      shortcut: m-t,
+      long: margin-top,
+    ),
+    right: (
+      shortcut: m-r,
+      long: margin-right,
+    ),
+    bottom: (
+      shortcut: m-b,
+      long: margin-bottom,
+    ),
+    left: (
+      shortcut: m-l,
+      long: margin-left,
+    ),
+    default: (
+      shortcut: m,
+      long: margin,
+    ),
+  );
+
+  @each $item, $direction in $margins {
+    .#{map-get($direction, shortcut)}-#{$i} {
+      #{map-get($direction, long)}: var(--space-#{$i});
+    }
+
+    @include mobile-only {
+      .#{map-get($direction, shortcut)}-#{$i}-sm {
+        #{map-get($direction, long)}: var(--space-#{$i});
+      }
+    }
+
+    @include tablet-min {
+      .#{map-get($direction, shortcut)}-#{$i}-md {
+        #{map-get($direction, long)}: var(--space-#{$i});
+      }
+    }
+
+    @include screen-min {
+      .#{map-get($direction, shortcut)}-#{$i}-lg {
+        #{map-get($direction, long)}: var(--space-#{$i});
+      }
+    }
+  }
+
+  // Paddings
+  $paddings: (
+    top: (
+      shortcut: p-t,
+      long: padding-top,
+    ),
+    right: (
+      shortcut: p-r,
+      long: padding-right,
+    ),
+    bottom: (
+      shortcut: p-b,
+      long: padding-bottom,
+    ),
+    left: (
+      shortcut: p-l,
+      long: padding-left,
+    ),
+    default: (
+      shortcut: p,
+      long: padding,
+    ),
+  );
+
+  @each $item, $direction in $paddings {
+    .#{map-get($direction, shortcut)}-#{$i} {
+      #{map-get($direction, long)}: var(--space-#{$i});
+    }
+
+    @include mobile-only {
+      .#{map-get($direction, shortcut)}-#{$i}-sm {
+        #{map-get($direction, long)}: var(--space-#{$i});
+      }
+    }
+
+    @include tablet-min {
+      .#{map-get($direction, shortcut)}-#{$i}-md {
+        #{map-get($direction, long)}: var(--space-#{$i});
+      }
+    }
+
+    @include screen-min {
+      .#{map-get($direction, shortcut)}-#{$i}-lg {
+        #{map-get($direction, long)}: var(--space-#{$i});
+      }
+    }
+  }
+
+  @each $item, $direction in $paddings {
+    .flex-gap {
+      gap: var(--space-#{$i});
+    }
+
+    @include tablet-min {
+      .flex-gap-lg {
+        gap: var(--space-#{$i});
+      }
+    }
+
+    @include screen-min {
+      .flex-gap-lg {
+        gap: var(--space-#{$i});
+      }
+    }
+  }
+}

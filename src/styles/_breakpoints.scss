@@ -1,0 +1,39 @@
+:root {
+  --breakpoint-mobile-max: 767px;
+  --breakpoint-tablet-min: 768px;
+  --breakpoint-tablet-max: 960px;
+  --breakpoint-tablet-landscape-min: 1024px;
+  --breakpoint-screen-min: 1441px;
+}
+
+$breakpoints: (
+  'mobile-max': 767px,
+  'tablet-min': 768px,
+  'tablet-max': 960px,
+  'tablet-landscape-min': 1024px,
+  'screen-min': 1441px,
+);
+
+@mixin mobile-only {
+  @media (max-width: map-get($breakpoints, 'mobile-max')) {
+    @content;
+  }
+}
+
+@mixin tablet-min {
+  @media (min-width: map-get($breakpoints, 'tablet-min')) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media (min-width: map-get($breakpoints, 'tablet-landscape-min')) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin screen-min {
+  @media (min-width: map-get($breakpoints, 'screen-min')) {
+    @content;
+  }
+}
