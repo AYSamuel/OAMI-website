@@ -13,7 +13,6 @@
     "lint:fix": "ng lint --fix",
     "format": "prettier --write \"src/**/*.{ts,html,scss}\""
   },
-  "type": "module",
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.2.0",

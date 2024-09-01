@@ -4,7 +4,7 @@
   "cli": {
     "packageManager": "yarn",
     "analytics": false,
-    "schematicCollections": ["@angular-eslint/schematics"]
+    "schematicCollections": ["@angular-eslint/schematics", "@schematics/angular"]
   },
   "newProjectRoot": "projects",
   "projects": {

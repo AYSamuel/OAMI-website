@@ -19,7 +19,7 @@ enum BUTTON_TYPE {
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
-  // we want label, size, disabled type, and click event
+  // we want label, size, disabled, type, and click event
   label = input.required<string>();
   size = input.required<BUTTON_SIZE>();
   disabled = input<boolean>(false);
