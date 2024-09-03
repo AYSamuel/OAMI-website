@@ -18,6 +18,7 @@
   --space-12: 3.5rem; /* 56px */
   --color-black: #161722;
   --color-primary: #ffd2a4;
+  --color-secondary: #161722;
   --color-white: #ffffff;
   --color-light-orange: #fff5eb;
   --color-grey: #f5f2f0;
@@ -51,15 +52,15 @@
   --heading-h2: 700 48px/64 'Roboto Condensed';
   --heading-h3: 700 40px/56 'Roboto Condensed';
   --heading-h4: 700 32px/44 'Roboto Condensed';
-  --heading-h5: 700 24px/AUTO 'Roboto Condensed';
+  --heading-h5: 700 24px / AUTO 'Roboto Condensed';
   --heading-h6: 700 16px/1.5 'Roboto Condensed';
   --label-01: 400 24px/32 'Roboto Condensed';
-  --label-02: 400 16px/AUTO 'Roboto Condensed';
-  --label-03: 400 18px/AUTO 'Roboto Condensed';
+  --label-02: 400 16px / AUTO 'Roboto Condensed';
+  --label-03: 400 18px / AUTO 'Roboto Condensed';
   --paragraph: 400 16px/24 'Roboto Condensed';
-  --cap-01: 700 16px/AUTO 'Roboto Condensed';
-  --cap-02: 400 12px/AUTO 'Roboto Condensed';
-  --cap-03: 700 12px/AUTO 'Roboto Condensed';
+  --cap-01: 700 16px / AUTO 'Roboto Condensed';
+  --cap-02: 400 12px / AUTO 'Roboto Condensed';
+  --cap-03: 700 12px / AUTO 'Roboto Condensed';
   --text-case-uppercase: uppercase;
   --text-case-none: none;
   --text-decoration-none: none;
