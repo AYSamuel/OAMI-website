@@ -1,0 +1,349 @@
+:root {
+  // General
+  --oami-color-text-light: var(--color-white);
+  --oami-color-text-dark: var(--color-black);
+  --oami-color-background-light: var(--color-white);
+  --oami-color-background-dark: var(--color-black);
+  --oami-color-text-primary: var(--color-primary);
+  --oami-color-background-primary: var(--color-primary);
+  --oami-color-background-secondary: var(--color-secondary);
+
+  // Elements widths / height used in calculations
+  --content-wrapper-max-w: 1440px;
+  /* input-h + 2 * (padding-top & bottom) + 32px gap - 8px (puhed top from screens edge)  */
+  --top-bar-computed-height: calc(
+    var(--oami-button-height) + (2 * var(--space-4)) + var(--space-9) - var(--space-4)
+  );
+
+  // Main element
+  --oami-main-color-background: var(--color-base-gray-10);
+
+  // Navigation bar
+  --oami-navbar-width: 4.5rem;
+  --oami-navbar-height-tablet: 4.5rem;
+  --oami-navbar-color-background: var(--color-base-petrol-100);
+  --oami-navbar-button-color: var(--color-white);
+  --oami-navbar-button-color-background-hover: var(--color-base-petrol-90);
+  --oami-navbar-button-color-background-selected: var(--color-base-orange-60);
+  --oami-navbar-toggle-menu-button-color: var(--color-base-petrol-40);
+  --oami-navbar-button-color-disabled: var(--color-base-gray-40);
+  --oami-navbar-separator-color: var(--color-base-petrol-60);
+  --oami-navbar-user-menu-item-color: var(--color-black);
+  --oami-navbar-user-menu-item-color-hover: var(--color-base-gray-10);
+  --oami-navbar-user-menu-separator-color: var(--color-base-gray-20);
+  --oami-navbar-submenu-color-background: var(--color-white);
+  --oami-navbar-back-button-color: var(--color-primary);
+
+  // Navigation menu
+  --oami-navigation-menu-color-background: var(--color-white);
+  --oami-navigation-menu-title-color-background-hover: var(--color-base-gray-10);
+  --oami-navigation-menu-title-color-background-selected: var(--color-base-gray-20);
+  --oami-navigation-accordion-title-color-background-hover: var(--color-base-gray-10);
+  --oami-navigation-accordion-title-color-background-selected: var(--color-base-gray-20);
+  --oami-navigation-accordion-title-caret-color-hover: var(--color-base-petrol-40);
+  --oami-navigation-accordion-item-color-background-hover: var(--color-base-gray-10);
+  --oami-navigation-accordion-item-color-background-selected: var(--color-base-gray-20);
+
+  // Avatar component
+  --oami-avatar-color-background: var(--color-base-petrol-50);
+  --oami-avatar-color-background-hover: var(--color-base-petrol-60);
+  --oami-avatar-color-background-active: var(--color-base-petrol-70);
+  --oami-avatar-divider-color-background: var(--color-base-gray-20);
+
+  // Consumption change component
+  --oami-consumption-color-background: var(--color-base-light-green-10);
+  --oami-consumption-color-text: var(--color-system-success-50);
+  --oami-consumption-color-background-negative: var(--color-base-red-10);
+  --oami-consumption-color-text-negative: var(--color-base-red-50);
+
+  // Dropdown component
+  --oami-dropdown-link-color-background-hover: var(--color-base-gray-10);
+
+  // Dropdown item component
+  --oami-dropdown-color-background-hover: var(--color-base-gray-10);
+  --oami-dropdown-tenant-color-background-hover: var(--color-base-petrol-20);
+
+  // Tooltip directive
+  --oami-tooltip-directive-color-background: var(--color-base-petrol-100);
+  --oami-tooltip-directive-color-tooltip-info-text: var(--color-base-petrol-20);
+  --oami-tooltip-directive-color-tooltip-text: var(--color-white);
+  --oami-tooltip-directive-caret-color-background: var(--color-base-petrol-100);
+
+  // Notification component
+  --oami-notification-info-icon-color-background: var(--color-system-info-50);
+  --oami-notification-info-content-color-background: var(--color-system-info-10);
+
+  --oami-notification-warning-icon-color-background: var(--color-system-warning-50);
+  --oami-notification-warning-content-color-background: var(--color-system-warning-10);
+
+  --oami-notification-error-icon-color-background: var(--color-system-error-50);
+  --oami-notification-error-content-color-background: var(--color-system-error-10);
+
+  --oami-notification-success-icon-color-background: var(--color-system-success-50);
+  --oami-notification-success-content-color-background: var(--color-system-success-10);
+
+  // Carousel component
+  --oami-carousel-dot-color-background: var(--color-base-petrol-50);
+  --oami-carousel-dot-color-background-hover: var(--color-base-petrol-30);
+  --oami-carousel-dot-color-background-selected: var(--color-base-petrol-10);
+
+  // Buttons
+  --oami-button-height: 40px;
+  --oami-button-min-width: 40px;
+  --oami-button-min-width-small: 32px;
+  --oami-button-min-height-small: 32px;
+  --oami-button-round-width: 48px;
+  --oami-button-round-height: 48px;
+
+  /* Primary button */
+  --oami-button-color-background: var(--color-base-petrol-60);
+  --oami-button-color-background-hover: var(--color-base-petrol-40);
+  --oami-button-color-background-active: var(--color-base-petrol-80);
+  --oami-button-color-background-disabled: var(--color-base-gray-20);
+  --oami-button-color-border-focus: var(--color-base-petrol-30);
+  --oami-button-color-text: var(--oami-color-text-light);
+  --oami-button-color-text-disabled: var(--color-base-gray-50);
+
+  --oami-button-secondary-color-background: var(--color-white);
+  --oami-button-secondary-color-text: var(--color-black);
+  --oami-button-secondary-color-text-hover: var(--color-base-petrol-40);
+  --oami-button-secondary-color-text-active: var(--color-base-petrol-20);
+  --oami-button-secondary-color-border-focus: var(--color-base-petrol-30);
+
+  --oami-button-tertiary-color-background: var(--color-base-gray-10);
+  --oami-button-tertiary-color-background-hover: var(--color-base-gray-30);
+  --oami-button-tertiary-color-background-active: var(--color-base-gray-40);
+  --oami-button-tertiary-color-text: var(--oami-color-text-dark);
+
+  --oami-button-link-color-text: var(--color-base-petrol-60);
+  --oami-button-link-color-text-hover: var(--color-base-petrol-40);
+  --oami-button-link-color-text-active: var(--color-base-purple-70);
+  --oami-button-link-color-text-disabled: var(--color-base-gray-60);
+
+  --oami-button-round-color-background: var(--color-base-petrol-90);
+  --oami-button-round-color-background-hover: var(--color-base-petrol-100);
+  --oami-button-round-color-background-active: var(--color-black);
+
+  --oami-button-round-light-color-background: var(--color-base-orange-60);
+  --oami-button-round-light-color-background-hover: var(--color-base-orange-70);
+  --oami-button-round-light-color-background-active: var(--color-base-orange-60);
+  --oami-button-round-light-color-border-focus: var(--color-base-orange-30);
+
+  --oami-button-accent-color-background: var(--color-base-orange-60);
+  --oami-button-accent-color-background-hover: var(--color-base-orange-40);
+  --oami-button-accent-color-border-focus: var(--color-base-orange-30);
+  --oami-button-accent-color-text: var(--color-white);
+  --oami-button-accent-color-background-active: var(--color-base-orange-80);
+
+  // Search recipe
+  --oami-search-header-color-border: var(--color-base-gray-20);
+
+  // Address box
+  --oami-address-box-color-background: var(--color-base-gray-20);
+
+  // Headline
+  --oami-headline-heading-color-text: var(--color-black);
+  --oami-headline-subheading-color-text: var(--color-base-gray-70);
+
+  // Guide
+  --oami-guide-header-color-background: var(--color-primary);
+
+  // List
+  --oami-list-color-background-hover: var(--color-base-gray-10);
+  --oami-list-color-text-disabled: var(--color-base-gray-50);
+  --oami-list-color-background-selected: var(--color-base-petrol-20);
+
+  // Checkbox
+  --oami-checkbox-color-border: var(--color-base-gray-50);
+  --oami-checkbox-color-border-checked: var(--color-primary);
+  --oami-checkbox-color-border-checked-hover: var(--color-base-petrol-80);
+  --oami-checkbox-color-border-disabled: var(--color-base-gray-30);
+  --oami-checkbox-color-border-disabled-checked: var(--color-base-gray-10);
+
+  --oami-checkbox-color-background-hover: var(--color-base-gray-20);
+  --oami-checkbox-color-background-checked: var(--color-primary);
+  --oami-checkbox-color-background-checked-hover: var(--color-base-petrol-80);
+  --oami-checkbox-color-background-disabled: var(--color-base-gray-10);
+
+  --oami-checkbox-icon-color-background-indeterminate: var(--color-white);
+
+  // Radio
+  --oami-radio-color-border: var(--color-base-gray-50);
+  --oami-radio-color-border-disabled: var(--color-base-gray-30);
+  --oami-radio-color-border-checked: var(--color-base-petrol-60);
+  --oami-radio-color-border-checked-hover: var(--color-base-petrol-80);
+  --oami-radio-color-border-checked-disabled: var(--color-base-gray-40);
+
+  // Switch
+  --oami-switch-toggle-color-background: var(--color-white);
+  --oami-switch-path-color-background: var(--color-base-gray-50);
+  --oami-switch-path-color-background-disabled: var(--color-base-gray-30);
+  --oami-switch-color-background-active: var(--color-base-petrol-70);
+  --oami-switch-color-background-checked-disabled: var(--color-base-petrol-20);
+
+  --oami-radio-color-backround-hover: var(--color-base-gray-20);
+  --oami-radio-color-backround-disabled: var(--color-base-gray-10);
+  --oami-radio-color-background-checked: var(--color-base-petrol-60);
+  --oami-radio-color-background-hover: var(--color-base-petrol-80);
+  --oami-radio-color-background-checked-disabled: var(--color-base-gray-10);
+
+  // Filters
+  --oami-filters-separator-color-background: var(--color-base-gray-20);
+  --oami-result-color-background-hover: var(--color-base-gray-10);
+
+  // Error
+  --oami-error-color-background: var(--color-base-gray-10);
+
+  // Tab group
+  --oami-tab-group-color-black: var(--color-black);
+  --oami-tab-group-solid-tab-color-active: var(--color-white);
+  --oami-tab-group-solid-tab-color-background-active: var(--color-primary);
+  --oami-tab-group-solid-tab-color-background-hover: var(--color-base-gray-40);
+  --oami-tab-group-solid-tab-container-color-background: var(--color-base-gray-20);
+  --oami-tab-group-underline-tab-color-border-active: var(--color-secondary);
+  --oami-tab-group-underline-tab-color-border-hover: var(--color-base-gray-30);
+  --oami-tab-group-solid-l-tab-value-color: var(--color-base-gray-70);
+  --oami-tab-group-solid-l-tab-color-border-hover: var(--color-base-gray-30);
+
+  // Tree
+  --oami-tree-number-color-text: var(--color-base-gray-70);
+  --oami-tree-item-structure-color-background: var(--color-base-gray-40);
+
+  // Table
+  --oami-table-color-border: var(--color-base-petrol-10);
+  --oami-table-row-color-background-hover: var(--color-base-gray-10);
+  --oami-table-header-color-backgroud: var(--color-base-petrol-10);
+  --oami-table-header-color-backgroud-hover: var(--color-base-petrol-20);
+  --oami-table-color-text: var(--color-black);
+  --oami-table-units-color-text: var(--color-base-gray-70);
+  --oami-table-color-background: var(--color-base-gray-20);
+  --oami-ag-pagination-color-text: var(--color-base-gray-70);
+
+  // Tag
+  --oami-tag-color-text: var(--color-white);
+  // Tag - building types ordered by how we get them from BE for pie chart
+  --oami-tag-color-background-education: var(--color-system-info-50);
+  --oami-tag-color-background-health-care: var(--color-base-light-green-50);
+  --oami-tag-color-background-hotel: var(--color-system-error-50);
+  --oami-tag-color-background-industrial: var(--color-base-red-50);
+  --oami-tag-color-background-lodging-leisure-recreation: var(--color-base-orange-40);
+  --oami-tag-color-background-mixed-use: var(--color-base-gray-50);
+  --oami-tag-color-background-office: var(--color-base-green-50);
+  --oami-tag-color-background-residential: var(--color-base-purple-50);
+  --oami-tag-color-background-retail: var(--color-base-red-30);
+  --oami-tag-color-background-technology: var(--color-system-warning-50);
+  --oami-tag-color-background-other: var(--color-base-purple-10);
+  // Tag - ownership
+  --oami-tag-color-background-tenant: var(--color-base-navy-blue-70);
+  --oami-tag-color-background-owner: var(--color-base-navy-blue-50);
+
+  // Breadcrumb
+  --oami-breadcrumb-item-color: var(--color-base-gray-90);
+
+  // Accordion
+  --oami-accordion-item-border-color: var(--color-base-gray-20);
+
+  // Sidebar
+  --oami-sidebar-overlay-color-background: var(--color-black);
+  --oami-sidebar-color-background: var(--color-white);
+  --oami-sidebar-close-button-color-background: var(--color-base-gray-10);
+  --oami-sidebar-close-button-color: var(--color-black);
+
+  // Tag-chip
+  --oami-tag-chip-color-text: var(--color-black);
+  --oami-tag-chip-color-text-hover: var(--color-white);
+  --oami-tag-chip-color-text-active: var(--color-white);
+
+  --oami-tag-chip-color-background: var(--color-base-petrol-10);
+  --oami-tag-chip-color-background-hover: var(--color-base-gray-10);
+  --oami-tag-chip-color-background-active: var(--color-primary);
+
+  --oami-tag-chip-color-border-hover: var(--color-base-petrol-50);
+
+  --oami-tag-chip-close-color-background: var(--color-base-petrol-20);
+  --oami-tag-chip-close-color-background-active: var(--color-base-petrol-80);
+
+  // Digital Twin
+  --oami-digital-twin-color-background: var(--color-secondary);
+
+  // Dialog
+  --oami-dialog-color-background-end: var(--color-white);
+  --oami-dialog-color-text: var(--color-white);
+  --oami-dialog-color-overlay: var(--color-black);
+  --oami-dialog-icon-color: var(--color-primary);
+
+  // Range slider
+  --oami-range-thumb-color-background: var(--color-white);
+  --oami-range-thumb-color-border: var(--color-base-gray-30);
+  --oami-range-track-color-background: var(--color-base-gray-30);
+  --oami-range-track-color-background-selected: var(--color-base-petrol-60);
+
+  // Input
+  --oami-input-height: 50px;
+  --oami-input-height-lg: 68px;
+  --oami-input-error-color-text: var(--color-base-red-50);
+  --oami-input-color-text: var(--color-black);
+  --oami-input-color-caret: var(--color-base-orange-60);
+  --oami-input-color-background: var(--color-base-gray-10);
+  --oami-input-color-info: var(--color-system-info-10);
+  --oami-input-color-warning: var(--color-system-warning-10);
+  --oami-input-color-readonly: var(--color-base-petrol-20);
+  --oami-input-focus-color-border: var(--color-base-petrol-40);
+  --oami-input-label-color-text: var(--color-base-gray-70);
+  --oami-input-placeholder-color-text: var(--color-base-gray-60);
+  --oami-input-error-color-border: var(--color-base-red-50);
+
+  // Image viewer
+  --oami-image-viewer-placeholder-text-color: var(--color-base-gray-70);
+
+  // Datepicker
+  --oami-datepicker-primary-color: var(--color-base-petrol-40);
+  --oami-datepicker-today-color-border: var(--color-base-gray-50);
+  --oami-datepicker-cell-color-background-hover: var(--color-base-petrol-20);
+  --oami-datepicker-cell-color-background-focus: var(--color-base-petrol-20);
+  --oami-datepicker-cell-color-background-active: var(--color-primary);
+  --oami-datepicker-arrow-fill-color: var(--color-black);
+  --oami-datepicker-select-text-color: var(--color-black);
+  --oami-datepicker-button-text-color: var(--color-white);
+  --oami-datepicker-calendar-header-text-color: var(--color-base-gray-60);
+  --oami-datepicker-select-background-color: var(--color-base-gray-20);
+  --oami-datepicker-year-cell-background-color-hover: var(--color-base-gray-20);
+  --oami-datepicker-range-background-color: var(--color-base-petrol-20);
+  --oami-datepicker-range-outline-color: var(--color-primary);
+
+  --oami-datepicker-input-label-text-color: var(--color-base-gray-70);
+  --oami-datepicker-input-caret-color: var(--color-secondary);
+  --oami-datepicker-input-text-color-disabled: var(--color-base-gray-50);
+  --oami-datepicker-icon-color: var(--color-black);
+  --oami-datepicker-input-border-color-error: var(--color-system-error-50);
+  --oami-datepicker-error-text-color: var(--color-system-error-50);
+
+  // Single select input
+  --oami-single-select-input-color-background: var(--color-base-gray-10);
+  --oami-single-select-input-no-resuts-icon-color: var(--color-base-gray-60);
+  --oami-single-select-input-no-resuts-text-color: var(--color-base-gray-70);
+
+  // Trend
+  --oami-trend-color-background-positive: var(--color-system-success-10);
+  --oami-trend-color-text-positive: var(--color-system-success-50);
+  --oami-trend-color-background-negative: var(--color-system-error-10);
+  --oami-trend-color-text-negative: var(--color-system-error-50);
+
+  //Charts
+  --oami-chart-border-color-primary: #cccccc;
+  --oami-chart-zoom-data-filler-color: #33808324;
+
+  // Header (Recipe)
+  --oami-header-color-favorite: var(--color-secondary);
+  --oami-header-breadcrumbs-color-background: var(--color-white);
+
+  // Chatbot
+  --oami-chatbot-gap: 72px;
+
+  // Loader
+  --oami-loader-color-primary: var(--color-primary);
+  --oami-loader-color-secondary: var(--color-secondary);
+
+  --oami-loader-progress-color-background: var(--color-white);
+  --oami-loader-progress-color-background-filled: var(--color-secondary);
+}
