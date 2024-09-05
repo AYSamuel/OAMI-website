@@ -1,5 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
+// @use 'breakpoints' as *;
+
+@use 'components/core/styles/breakpoints' as *;
+@use 'components/core/styles/spacing' as *;
+@use 'components/core/styles/utils' as *;
+@use 'components/core/styles/variable' as *;
+@use 'components/core/styles/variable-map' as *;
+@use 'components/core/styles/grid' as *;
+@use 'components/core/styles/normalize' as *;
+
 :root {
   --body-color-background: white;
 }
@@ -15,4 +25,13 @@ oami-root,
 oami-root main {
   display: block;
   background: var(--body-color-background);
+}
+
+main {
+  width: 100%;
+  padding-bottom: var(--oami-navbar-height-tablet);
+
+  @include tablet-landscape {
+    padding-bottom: 0;
+  }
 }

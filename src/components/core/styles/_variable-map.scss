@@ -1,0 +1,128 @@
+:root {
+  // General
+  --oami-color-text-light: var(--color-white);
+  --oami-color-text-dark: var(--color-black);
+  --oami-color-background-light: var(--color-white);
+  --oami-color-background-dark: var(--color-black);
+  --oami-color-text-primary: var(--color-primary);
+  --oami-color-background-primary: var(--color-primary);
+  --oami-color-background-secondary: var(--color-secondary);
+
+  // Elements widths / height used in calculations
+  --content-wrapper-max-w: 1440px;
+  /* input-h + 2 * (padding-top & bottom) + 32px gap - 8px (puhed top from screens edge)  */
+  --top-bar-computed-height: calc(
+    var(--oami-button-height) + (2 * var(--space-4)) + var(--space-9) - var(--space-4)
+  );
+
+  // Main element
+  --oami-main-color-background: var(--color-base-gray-10);
+
+  // Navigation bar
+  --oami-navbar-width: 4.5rem;
+  --oami-navbar-height-tablet: 4.5rem;
+  --oami-navbar-color-background: var(--color-base-petrol-100);
+  --oami-navbar-button-color: var(--color-white);
+  --oami-navbar-button-color-background-hover: var(--color-base-petrol-90);
+  --oami-navbar-button-color-background-selected: var(--color-base-orange-60);
+  --oami-navbar-toggle-menu-button-color: var(--color-base-petrol-40);
+  --oami-navbar-button-color-disabled: var(--color-base-gray-40);
+  --oami-navbar-separator-color: var(--color-base-petrol-60);
+  --oami-navbar-user-menu-item-color: var(--color-black);
+  --oami-navbar-user-menu-item-color-hover: var(--color-base-gray-10);
+  --oami-navbar-user-menu-separator-color: var(--color-base-gray-20);
+  --oami-navbar-submenu-color-background: var(--color-white);
+  --oami-navbar-back-button-color: var(--color-primary);
+
+  // Navigation menu
+  --oami-navigation-menu-color-background: var(--color-white);
+  --oami-navigation-menu-title-color-background-hover: var(--color-base-gray-10);
+  --oami-navigation-menu-title-color-background-selected: var(--color-base-gray-20);
+  --oami-navigation-accordion-title-color-background-hover: var(--color-base-gray-10);
+  --oami-navigation-accordion-title-color-background-selected: var(--color-base-gray-20);
+  --oami-navigation-accordion-title-caret-color-hover: var(--color-base-petrol-40);
+  --oami-navigation-accordion-item-color-background-hover: var(--color-base-gray-10);
+  --oami-navigation-accordion-item-color-background-selected: var(--color-base-gray-20);
+
+  // Buttons
+  --oami-button-height: 40px;
+  --oami-button-min-width: 40px;
+  --oami-button-min-width-small: 32px;
+  --oami-button-min-height-small: 32px;
+  --oami-button-round-width: 48px;
+  --oami-button-round-height: 48px;
+
+  /* Primary button */
+  --oami-button-color-background: var(--color-base-petrol-60);
+  --oami-button-color-background-hover: var(--color-base-petrol-40);
+  --oami-button-color-background-active: var(--color-base-petrol-80);
+  --oami-button-color-background-disabled: var(--color-base-gray-20);
+  --oami-button-color-border-focus: var(--color-base-petrol-30);
+  --oami-button-color-text: var(--oami-color-text-light);
+  --oami-button-color-text-disabled: var(--color-base-gray-50);
+
+  --oami-button-secondary-color-background: var(--color-white);
+  --oami-button-secondary-color-text: var(--color-black);
+  --oami-button-secondary-color-text-hover: var(--color-base-petrol-40);
+  --oami-button-secondary-color-text-active: var(--color-base-petrol-20);
+  --oami-button-secondary-color-border-focus: var(--color-base-petrol-30);
+
+  --oami-button-link-color-text: var(--color-base-petrol-60);
+  --oami-button-link-color-text-hover: var(--color-base-petrol-40);
+  --oami-button-link-color-text-active: var(--color-base-purple-70);
+  --oami-button-link-color-text-disabled: var(--color-base-gray-60);
+
+  // Guide
+  --oami-guide-header-color-background: var(--color-primary);
+
+  // List
+  --oami-list-color-background-hover: var(--color-base-gray-10);
+  --oami-list-color-text-disabled: var(--color-base-gray-50);
+  --oami-list-color-background-selected: var(--color-base-petrol-20);
+
+  // Checkbox
+  --oami-checkbox-color-border: var(--color-base-gray-50);
+  --oami-checkbox-color-border-checked: var(--color-primary);
+  --oami-checkbox-color-border-checked-hover: var(--color-base-petrol-80);
+  --oami-checkbox-color-border-disabled: var(--color-base-gray-30);
+  --oami-checkbox-color-border-disabled-checked: var(--color-base-gray-10);
+
+  --oami-checkbox-color-background-hover: var(--color-base-gray-20);
+  --oami-checkbox-color-background-checked: var(--color-primary);
+  --oami-checkbox-color-background-checked-hover: var(--color-base-petrol-80);
+  --oami-checkbox-color-background-disabled: var(--color-base-gray-10);
+
+  --oami-checkbox-icon-color-background-indeterminate: var(--color-white);
+
+  // Radio
+  --oami-radio-color-border: var(--color-base-gray-50);
+  --oami-radio-color-border-disabled: var(--color-base-gray-30);
+  --oami-radio-color-border-checked: var(--color-base-petrol-60);
+  --oami-radio-color-border-checked-hover: var(--color-base-petrol-80);
+  --oami-radio-color-border-checked-disabled: var(--color-base-gray-40);
+
+  // Input
+  --oami-input-height: 50px;
+  --oami-input-height-lg: 68px;
+  --oami-input-error-color-text: var(--color-base-red-50);
+  --oami-input-color-text: var(--color-black);
+  --oami-input-color-caret: var(--color-base-orange-60);
+  --oami-input-color-background: var(--color-base-gray-10);
+  --oami-input-color-info: var(--color-system-info-10);
+  --oami-input-color-warning: var(--color-system-warning-10);
+  --oami-input-color-readonly: var(--color-base-petrol-20);
+  --oami-input-focus-color-border: var(--color-base-petrol-40);
+  --oami-input-label-color-text: var(--color-base-gray-70);
+  --oami-input-placeholder-color-text: var(--color-base-gray-60);
+  --oami-input-error-color-border: var(--color-base-red-50);
+
+  // Chatbot
+  --oami-chatbot-gap: 72px;
+
+  // Loader
+  --oami-loader-color-primary: var(--color-primary);
+  --oami-loader-color-secondary: var(--color-secondary);
+
+  --oami-loader-progress-color-background: var(--color-white);
+  --oami-loader-progress-color-background-filled: var(--color-secondary);
+}
