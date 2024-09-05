@@ -15,4 +15,8 @@ export class AppComponent {
 
   protected readonly BUTTON_SIZE = BUTTON_SIZE;
   protected readonly BUTTON_VARIANT = BUTTON_VARIANT;
+
+  logToConsole(): void {
+    console.log('Button clicked!');
+  }
 }

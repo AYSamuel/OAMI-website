@@ -1,4 +1,5 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { BaseComponent } from '../../shared/components/base.component';
 
 export enum BUTTON_SIZE {
   SMALL = 'small',
@@ -23,19 +24,11 @@ export enum BUTTON_VARIANT {
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })
-export class ButtonComponent {
+export class ButtonComponent extends BaseComponent {
   // we want label, size, disabled, type, and click event to be emitted
   label = input.required<string>();
   size = input.required<BUTTON_SIZE>();
   disabled = input<boolean>(false);
   variant = input.required<BUTTON_VARIANT>();
   type = input<BUTTON_TYPE>();
-
-  buttonClick = output<void>();
-
-  onClick(): void {
-    if (!this.disabled()) {
-      this.buttonClick.emit();
-    }
-  }
 }

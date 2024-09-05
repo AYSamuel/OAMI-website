@@ -36,7 +36,7 @@
             ],
             "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/styles"]
+              "includePaths": ["src/components/core/styles"]
             },
             "scripts": [],
             "server": "src/main.server.ts",

@@ -14,7 +14,7 @@
         "ts/shadow/css/shorthand",
         "name/cti/kebab"
       ],
-      "buildPath": "./src/styles/",
+      "buildPath": "./src/components/core/styles/",
       "files": [
         {
           "destination": "_variable.scss",
