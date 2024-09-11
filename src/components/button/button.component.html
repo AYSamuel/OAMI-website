@@ -1,3 +1,7 @@
 <button id="{{ id + '--button' }}" [disabled]="disabled()">
   {{ label() }}
 </button>
+
+<button [ngClass]="classes" [disabled]="disabled()" [attr.type]="type()">
+  {{ label() }}
+</button>
