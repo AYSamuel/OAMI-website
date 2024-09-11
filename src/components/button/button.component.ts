@@ -1,5 +1,6 @@
 import { Component, input } from '@angular/core';
 import { BaseComponent } from '../../shared/components/base.component';
+import { CommonModule } from '@angular/common';
 
 export enum BUTTON_SIZE {
   SMALL = 'small',
@@ -20,15 +21,19 @@ export enum BUTTON_VARIANT {
 @Component({
   selector: 'oami-button',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })
-export class ButtonComponent extends BaseComponent {
+export class OamiButtonComponent extends BaseComponent {
   // we want label, size, disabled, type, and click event to be emitted
-  label = input.required<string>();
-  size = input.required<BUTTON_SIZE>();
+  label = input<string>();
+  size = input<BUTTON_SIZE>();
   disabled = input<boolean>(false);
-  variant = input.required<BUTTON_VARIANT>();
+  variant = input<BUTTON_VARIANT>();
   type = input<BUTTON_TYPE>();
+
+  get classes(): string[] {
+    return ['oami-button', `oami-button--${this.size()}`, `oami-button--${this.variant()}`];
+  }
 }

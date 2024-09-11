@@ -1,94 +1,65 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ButtonComponent, BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from './button.component';
-import { Component } from '@angular/core';
+import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT, OamiButtonComponent } from './button.component';
 
-@Component({
-  template: `
-    <oami-button
-      [label]="label"
-      [size]="size"
-      [variant]="variant"
-      [disabled]="disabled"
-      [type]="type"
-    ></oami-button>
-  `,
-  standalone: true,
-  imports: [ButtonComponent],
-})
-class TestHostComponent {
-  label!: string;
-  size!: BUTTON_SIZE;
-  variant!: BUTTON_VARIANT;
-  disabled = false;
-  type?: BUTTON_TYPE;
-}
-
-describe('ButtonComponent', () => {
-  let hostFixture: ComponentFixture<TestHostComponent>;
-  let hostComponent: TestHostComponent;
-  let buttonComponentRef: ButtonComponent;
+describe('OamiButtonComponent', () => {
+  let component: OamiButtonComponent;
+  let fixture: ComponentFixture<OamiButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TestHostComponent, ButtonComponent],
+      imports: [OamiButtonComponent],
     }).compileComponents();
 
-    hostFixture = TestBed.createComponent(TestHostComponent);
-    hostComponent = hostFixture.componentInstance;
-    buttonComponentRef = hostFixture.debugElement.children[0].componentInstance;
+    fixture = TestBed.createComponent(OamiButtonComponent);
+    component = fixture.componentInstance;
+
+    // Set the required input before the first change detection
+    fixture.componentRef.setInput('label', 'Test Button');
+    fixture.componentRef.setInput('size', BUTTON_SIZE.LARGE);
+    fixture.componentRef.setInput('variant', BUTTON_VARIANT.PRIMARY);
+    fixture.componentRef.setInput('type', BUTTON_TYPE.BUTTON);
+    fixture.componentRef.setInput('disabled', false);
+    fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(buttonComponentRef).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  describe('Input Signals', () => {
-    it('should set label input signal', () => {
-      hostComponent.label = 'Test Button';
-      hostFixture.detectChanges();
-      expect(buttonComponentRef.label()).toBe('Test Button');
+  it('should display the correct label', () => {
+    const buttonElement = fixture.nativeElement.querySelector('button');
+    expect(buttonElement.textContent.trim()).toBe('Test Button');
 
-      hostComponent.label = 'New Label';
-      hostFixture.detectChanges();
-      expect(buttonComponentRef.label()).toBe('New Label');
-    });
+    fixture.componentRef.setInput('label', 'New Label');
+    fixture.detectChanges();
+    expect(buttonElement.textContent.trim()).toBe('New Label');
+  });
 
-    it('should set size input signal', () => {
-      hostComponent.size = BUTTON_SIZE.SMALL;
-      hostFixture.detectChanges();
-      expect(buttonComponentRef.size()).toBe(BUTTON_SIZE.SMALL);
+  it('should apply the correct size class', () => {
+    fixture.componentRef.setInput('size', 'large');
+    fixture.detectChanges();
+    const buttonElement = fixture.nativeElement.querySelector('button');
+    expect(buttonElement.classList.contains('oami-button--large')).toBeTruthy();
+  });
 
-      hostComponent.size = BUTTON_SIZE.LARGE;
-      hostFixture.detectChanges();
-      expect(buttonComponentRef.size()).toBe(BUTTON_SIZE.LARGE);
-    });
+  it('should apply the correct variant class', () => {
+    fixture.componentRef.setInput('variant', 'secondary');
+    fixture.detectChanges();
+    const buttonElement = fixture.nativeElement.querySelector('button');
+    expect(buttonElement.classList.contains('oami-button--secondary')).toBeTruthy();
+  });
 
-    it('should set variant input signal', () => {
-      hostComponent.variant = BUTTON_VARIANT.PRIMARY;
-      hostFixture.detectChanges();
-      expect(buttonComponentRef.variant()).toBe(BUTTON_VARIANT.PRIMARY);
+  it('should set the disabled attribute correctly', () => {
+    fixture.componentRef.setInput('disabled', true);
+    fixture.detectChanges();
+    const buttonElement = fixture.nativeElement.querySelector('button');
+    expect(buttonElement.disabled).toBeTruthy();
+  });
 
-      hostComponent.variant = BUTTON_VARIANT.SECONDARY;
-      hostFixture.detectChanges();
-      expect(buttonComponentRef.variant()).toBe(BUTTON_VARIANT.SECONDARY);
-    });
-
-    it('should set disabled input signal', () => {
-      expect(buttonComponentRef.disabled()).toBe(false);
-
-      hostComponent.disabled = true;
-      hostFixture.detectChanges();
-      expect(buttonComponentRef.disabled()).toBe(true);
-    });
-
-    it('should set type input signal', () => {
-      hostComponent.type = BUTTON_TYPE.BUTTON;
-      hostFixture.detectChanges();
-      expect(buttonComponentRef.type()).toBe(BUTTON_TYPE.BUTTON);
-
-      hostComponent.type = BUTTON_TYPE.SUBMIT;
-      hostFixture.detectChanges();
-      expect(buttonComponentRef.type()).toBe(BUTTON_TYPE.SUBMIT);
-    });
+  it('should set the correct type attribute', () => {
+    fixture.componentRef.setInput('type', 'submit');
+    fixture.detectChanges();
+    const buttonElement = fixture.nativeElement.querySelector('button');
+    expect(buttonElement.getAttribute('type')).toBe('submit');
   });
 });
